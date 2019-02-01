@@ -1,3 +1,13 @@
+class Tab {
+	constructor(tab) {
+		this.tab = tab;
+		this.tabLinks = document.querySelectorAll(".tab");
+		this.tabLinks.forEach(link => {
+			return new TabLink(link);
+		});
+	}
+}
+
 class TabLink {
 	constructor(tabElement) {
 		// assign this.tabElement to the tabElement DOM reference
@@ -67,7 +77,12 @@ class TabCard {
 - In your .forEach() method's callback function, return a new instance of TabLink and pass in each tab as a parameter
 
 */
-let tabs = document.querySelectorAll(".tab");
-Array.from(tabs).forEach(t => {
-	return new TabLink(t);
+// let tabs = document.querySelectorAll(".tab");
+// Array.from(tabs).forEach(t => {
+// 	return new TabLink(t);
+// });
+
+const tabs = document.querySelectorAll(".tabs");
+tabs.forEach(tab => {
+	return new Tab(tab);
 });
